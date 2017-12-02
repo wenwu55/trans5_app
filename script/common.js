@@ -1,23 +1,33 @@
 var serverUrl = "https://2.trans5.cn/trans5/";
 
-var userinfo = $api.getStorage("userinfo");
 
-if(api.winName!="applogin" && !userinfo)
-  api.openWin({
-    name: 'applogin',
-    url: 'html/login/login.html'
-   });
+
+
 
 function ajax(url,param, sendFun, compFun, callBack) {
+	var userinfo = $api.getStorage("userinfo");
    var params = {};
    params.url = serverUrl+url;
-   params.data = param.data;
-   params.headers = {"from":"rest","session_id":guid()};
+   if(param.headers)
+       params.headers = param.headers
+   else   
+       params.headers = {"from":"rest","Content-Type":"application/x-www-form-urlencoded"};
+       
+    params.headers.session_id = guid();
+   //params.headers = {"session_id":guid()};
    if(userinfo)
       params.headers.fcr = userinfo.fcr;
    if(param.method)
-      params.method = param.method;
-   sendFun && sendFun();   
+     params.method = param.method;
+   else
+        params.method="post";
+   sendFun && sendFun();
+   if(param.data)
+      params.data = param.data;
+   else{
+      params.data = {"body":param}
+   }
+   api.alert({msg:JSON.stringify(params)});
    api.ajax(params,function(ret,err){
    	   if(ret){
    	       if(ret.data.retCode && ret.data.retCode=="-2"){

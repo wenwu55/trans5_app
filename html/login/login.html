@@ -152,11 +152,13 @@ apiready=function(){
 	    		return false;
 			} else{
 				var param = {
-				              "method":"post",
-				              "data" : {values:{"username_":$('#username').val(),"password_":$('#password').val()}}
+				              "headers":{"from":"rest","Content-Type":"application/x-www-form-urlencoded"},
+				              
+				              "data" : {"values":{"username_":$('#username').val(),"password_":$('#password').val()}}
 				            }
 				var url = "security_check_"            
 			    ajax(url,param,null,null,function(ret){
+			       api.alert({msg:JSON.stringify(ret)})
 			       if(ret.code=="1000"){
 			          var fcr = ret.data.fcr;
 			          $api.setStorage("userinfo",{"username":$('#username').val(),"fcr":fcr});
