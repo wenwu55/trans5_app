@@ -1,4 +1,4 @@
-
+﻿
 var succ_html = '<div class="am-modal am-modal-alert tip-modal" tabindex="-1" id="succ_msg_1" style="z-index: 9999;">';
 succ_html += '   	<div class="am-modal-dialog">';
 succ_html += '           <div class="am-modal-hd"></div>';
@@ -14,7 +14,7 @@ succ_html += '           </div>';
 succ_html += '       </div>';
 succ_html += '   </div>';
 
- /**
+ /***
  弹出成功提示
 **/ 
 function succ_msg(msg,callBack){
