@@ -1,5 +1,5 @@
-var serverUrl = "http://192.168.3.14:8116/trans5/";
-
+//var serverUrl = "http://192.168.3.14:8116/trans5/";
+var serverUrl = "http://192.168.3.130:8088/trans5/";
 
 
 
@@ -60,3 +60,31 @@ function S4() {
 function guid() {
     return (S4()+"-"+S4()+"-"+S4()+S4()+S4()+S4()+S4()+S4());
 }
+//时间戳转DateTime
+function timeStamp2String (time){
+    var datetime = new Date();
+     datetime.setTime(time);
+     var year = datetime.getFullYear();
+     var month = datetime.getMonth() + 1;
+     if(month < 10 ) {
+    	 month = "0" + month;
+     }
+     var date = datetime.getDate();
+     if(date < 10 ) {
+    	 date = "0" + date;
+     }
+     var hour = datetime.getHours();
+     if(hour < 10 ) {
+    	 hour = "0" + hour;
+     }
+     var minute = datetime.getMinutes();
+     if(minute < 10 ) {
+    	 minute = "0" + minute;
+     }
+     var second = datetime.getSeconds();
+     if(second < 10 ) {
+    	 second = "0" + second;
+     }
+     var mseconds = datetime.getMilliseconds();
+     return year + "-" + month + "-" + date+" "+hour+":"+minute+":"+second ;
+};
