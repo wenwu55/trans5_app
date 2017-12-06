@@ -33,7 +33,7 @@ function ajax(url,param, sendFun, compFun, callBack) {
    
    api.ajax(params,function(ret,err){
    	   if(ret){
-   	       if(ret.data && ret.data.retCode && ret.data.retCode=="-2"){
+   	       if(ret.data.retCode && ret.data.retCode=="-2"){
    	          error_msg(ret.data.errMsg , function(){
    	              api.openWin({
 				        name: 'applogin',
