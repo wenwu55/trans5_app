@@ -110,7 +110,7 @@ function getUserDeptId(callBack) {
 	return deptId;
 }
 
-//获取每页行数
+//获取每页行数 
 function pageSizeApp(callBack){
 	var iDisplayLength = 0;
 	
