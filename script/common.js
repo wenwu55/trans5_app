@@ -1,5 +1,5 @@
 //var serverUrl = "http://192.168.3.14:8116/trans5/";
-var serverUrl = "http://192.168.3.130:8088/trans5/";
+var serverUrl = "http://192.168.3.14:8116/trans5/";
 
 
 
@@ -34,13 +34,17 @@ function ajax(url,param, sendFun, compFun, callBack) {
    api.ajax(params,function(ret,err){
    	   if(ret){
    	       if(ret.data.retCode && ret.data.retCode=="-2"){
-   	          error_msg(ret.data.errMsg , function(){
+   	          api.toast({
+	                 msg:ret.data.errMsg
+                 });
+   	          
    	              api.openWin({
 				        name: 'applogin',
-				        url: 'html/login/login.html'
+				        url: 'html/login/login.html',
+				        slidBackEnabled:false
 			        });
    	          
-   	          })
+   	          
    	       }
    	       else
    	          callBack(ret)
