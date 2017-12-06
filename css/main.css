@@ -40,7 +40,10 @@ a.sc-qjs-btn{height: 49px;line-height: 48px;font-size: 1rem;color: #fff;text-ali
 .sc-list-l2{width: calc(100% - 65px);width:-moz-calc(100% - 65px);width:-webkit-calc(100% - 65px);float: left;height: 45px;line-height: 45px; padding:0 1rem !important;}
 .sc-list-l2 a{color: #333;width: 33%;display: inline-block;text-align: center;}
 .sc-list-l2 a span{background: url("../images/ypcg/shuaixuan.png") no-repeat right center; background-size: 9px 4px; padding-right: 12px;}
+.sc-list-l2 a.active span{background: url("../images/ypcg/shuaixuan-up.png") no-repeat right center; background-size: 9px 4px; padding-right: 12px;}
 .sc-list-shuai{width: 65px;float: right;line-height: 45px;text-align: right; padding-right: 2rem;background: url("../images/ypcg/shuaixuan.png") no-repeat right 1rem center; background-size: 9px 4px;color: #333 !important;padding-left: 10px; position: relative;white-space: nowrap;}
+.sc-list-shuai.active{width: 65px;float: right;line-height: 45px;text-align: right; padding-right: 2rem;background: url("../images/ypcg/shuaixuan-up.png") no-repeat right 1rem center; background-size: 9px 4px;color: #333 !important;padding-left: 10px; position: relative;white-space: nowrap;}
+
 .sc-list-shuai i{position: absolute;top:13px;left:-8px;background: #ff5452;border-radius:50% ;width: 16px; height: 16px;text-align: center;line-height: 16px;color: #fff;font-size: 12px !important;font-style: normal;}
 
 
@@ -261,3 +264,20 @@ a.sc-gyc-tips span i{position: absolute;top:-30px;left:18px;background: #ff5452;
 .xzgys-c{width: 100%;float: left;}
 .xzgys-c span{width: 40px;display: inline-block;float: left;}
 .xzgys-c-r{width: calc(100% - 60px);float: left;display: inline;word-break: normal;}
+
+.xzgys-checkbox{background: #fff8e6}
+.xzgys-checkbox .mui-checkbox input[type=checkbox], .xzgys-checkbox .mui-radio input[type=radio]{position: inherit !important;}
+
+/*我的my*/
+.zpzz-checkbox{text-align: center;position: fixed;bottom: 49px;left: 0;width: 100% !important; height: 45px;background: #f8f8f8;line-height: 32px;}
+.zpzz-checkbox a{color: #576b95 !important;display: inline-block !important;}
+.fqxj-list3 span.fqxj-list3-t{width: 110px;display: inline-block;height: 45px; line-height: 45px;font-size: 14px !important;}
+
+.fqxj-list3-cx{width: calc(100% - 120px);display: inline-block;height: 45px;line-height: 45px;}
+.fqxj-list3-cx input{border: none!important; padding-left: 0 !important;padding-right: 0 !important;font-size: 14px !important;}
+
+.zpzz-checkbox .mui-checkbox input[type=checkbox], .zpzz-checkbox .mui-radio input[type=radio]{position: inherit !important;}
+
+/*我的账单*/
+.myaccount-top{line-height: 40px;}
+.myaccount-btn a{min-width: 70px;float: left;}
