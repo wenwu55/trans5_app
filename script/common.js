@@ -100,7 +100,8 @@ function getUserDeptId(callBack) {
 	}).success(function(data){	
 		var ret = JSON.parse(data);
 		if (ret.code != 1000) {
-			error_msg(ret.message);
+			//error_msg(ret.message);
+			mui.toast(ret.message,{ duration:'long', type:'div' });
 			return;
 		}  
 		/**deptId = ret.data.id;*/
@@ -122,7 +123,7 @@ function pageSizeApp(callBack){
 	}).success(function(data){	
 		var ret = JSON.parse(data);
 		if (ret.code != 1000) {
-			error_msg(ret.message);
+			mui.toast(ret.message,{ duration:'long', type:'div' });
 			return;
 		} 
 		
