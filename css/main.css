@@ -179,7 +179,7 @@ a.sc-gyc-tips span i{position: absolute;top:-30px;left:18px;background: #ff5452;
 
 /*供应商*/
 .gys-list{position: relative;}
-.gys-listzm{position: absolute;top: 40px;right: 0;bottom:49px;height:calc(100% - 49px);width: 30px;overflow-y: auto;}
+.gys-listzm{position: absolute;top: 40px;right: 0;bottom:49px;height:70%;width: 30px;overflow-y: auto;}
 .gys-listzm a{display: block;color: #929292 !important;line-height: 30px;}
 
 .mui-checkbox.ca-checkbox.mui-left label,.mui-radio.ca-checkbox.mui-left label{padding-left:30px !important;}
