@@ -1,5 +1,5 @@
 //var serverUrl = "http://192.168.3.14:8116/trans5/";
-var serverUrl = "https://2.trans5.cn/trans5/";
+var serverUrl = "http://192.168.3.130:8088/trans5/";
 
 
 
@@ -29,22 +29,18 @@ function ajax(url,param, sendFun, compFun, callBack) {
    }
    if(param.dataType)
       params.dataType = param.dataType;
-   api.alert({msg:JSON.stringify(params)});
+   //api.alert({msg:JSON.stringify(params)});
    
    api.ajax(params,function(ret,err){
    	   if(ret){
    	       if(ret.data.retCode && ret.data.retCode=="-2"){
-   	          api.toast({
-	                 msg:ret.data.errMsg
-                 });
-   	          
+   	          error_msg(ret.data.errMsg , function(){
    	              api.openWin({
 				        name: 'applogin',
-				        url: 'html/login/login.html',
-				        slidBackEnabled:false
+				        url: 'html/login/login.html'
 			        });
    	          
-   	          
+   	          })
    	       }
    	       else
    	          callBack(ret)
@@ -64,8 +60,6 @@ function S4() {
 function guid() {
     return (S4()+"-"+S4()+"-"+S4()+S4()+S4()+S4()+S4()+S4());
 }
-
-
 //时间戳转DateTime
 function timeStamp2String (time){
     var datetime = new Date();
@@ -106,7 +100,8 @@ function getUserDeptId(callBack) {
 	}).success(function(data){	
 		var ret = JSON.parse(data);
 		if (ret.code != 1000) {
-			error_msg(ret.message);
+			//error_msg(ret.message);
+			mui.toast(ret.message,{ duration:'long', type:'div' });
 			return;
 		}  
 		/**deptId = ret.data.id;*/
@@ -128,7 +123,7 @@ function pageSizeApp(callBack){
 	}).success(function(data){	
 		var ret = JSON.parse(data);
 		if (ret.code != 1000) {
-			error_msg(ret.message);
+			mui.toast(ret.message,{ duration:'long', type:'div' });
 			return;
 		} 
 		
@@ -195,4 +190,33 @@ function formatCurrency(num) {
 function checkMobileNo(mblNo){
 	var pattern = /^1[34578]\d{9}$/; 
     return pattern.test(mblNo); 
+}
+
+/**设置图片展示路径
+ * 
+ * @param {Object} path 图片路径
+ * @param {Object} version  app还是pc，为空默认app
+ * @param {Object} width  图片显示宽度，app可以为空，pc为空默认为144
+ * @param {Object} height 图片显示高度，app为空默认120，pc为空默认为132
+ */
+function setPicSrc(path, version, width, height) {
+	if(version == undefined) {
+		version = "app";
+	}
+	if(version == "app") {
+		if(height == undefined) {
+			height = "120";
+		}		
+		return path + "?x-oss-process=image/resize,m_pad,h_" + height;
+	} else if(version == "pc") {
+		if(height == undefined) {
+			height = "132";
+		}
+		if(width == undefined) {
+			width = "144";
+		}		
+		return path + "?x-oss-process=image/resize,m_pad,h_" + height + ",w_" + width;
+	}
+	
+	return "";
 }
