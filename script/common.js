@@ -33,7 +33,7 @@ function ajax(url,param, sendFun, compFun, callBack) {
    
    api.ajax(params,function(ret,err){
    	   if(ret){
-   	       if(ret.data && ret.data.retCode && ret.data.retCode=="-2"){
+   	       if(ret.data.retCode && ret.data.retCode=="-2"){
    	          error_msg(ret.data.errMsg , function(){
    	              api.openWin({
 				        name: 'applogin',
@@ -100,7 +100,8 @@ function getUserDeptId(callBack) {
 	}).success(function(data){	
 		var ret = JSON.parse(data);
 		if (ret.code != 1000) {
-			error_msg(ret.message);
+			//error_msg(ret.message);
+			mui.toast(ret.message,{ duration:'long', type:'div' });
 			return;
 		}  
 		/**deptId = ret.data.id;*/
@@ -122,7 +123,7 @@ function pageSizeApp(callBack){
 	}).success(function(data){	
 		var ret = JSON.parse(data);
 		if (ret.code != 1000) {
-			error_msg(ret.message);
+			mui.toast(ret.message,{ duration:'long', type:'div' });
 			return;
 		} 
 		
@@ -189,4 +190,33 @@ function formatCurrency(num) {
 function checkMobileNo(mblNo){
 	var pattern = /^1[34578]\d{9}$/; 
     return pattern.test(mblNo); 
+}
+
+/**设置图片展示路径
+ * 
+ * @param {Object} path 图片路径
+ * @param {Object} version  app还是pc，为空默认app
+ * @param {Object} width  图片显示宽度，app可以为空，pc为空默认为144
+ * @param {Object} height 图片显示高度，app为空默认120，pc为空默认为132
+ */
+function setPicSrc(path, version, width, height) {
+	if(version == undefined) {
+		version = "app";
+	}
+	if(version == "app") {
+		if(height == undefined) {
+			height = "120";
+		}		
+		return path + "?x-oss-process=image/resize,m_pad,h_" + height;
+	} else if(version == "pc") {
+		if(height == undefined) {
+			height = "132";
+		}
+		if(width == undefined) {
+			width = "144";
+		}		
+		return path + "?x-oss-process=image/resize,m_pad,h_" + height + ",w_" + width;
+	}
+	
+	return "";
 }

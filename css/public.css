@@ -17,6 +17,7 @@ input[readonly]{background: #f5f5f5 !important;border:1px solid #ddd !important;
 .btn-del{color: #666;border: 1px solid #ccc;border-radius: 2px;font-size: 1.2rem; padding: 2px 10px;}
 .btn-del:focus,.btn-del:active{color:#666;}
 .mtop10{margin-top:10px;}
+.mtop6{margin-top:6px;}
 .mleft10{margin-left:10px;}
 .mright10{margin-right:10px;}
 .mbottom10{margin-bottom:10px;}
@@ -47,6 +48,7 @@ input[readonly]{background: #f5f5f5 !important;border:1px solid #ddd !important;
 .bg-f8f8f8{background: #f8f8f8 !important;}
 .bg-f4f4f4{background: #f4f4f4;}
 .bg-gray{background: #ddd;}
+.bg-orange{background: #ea5413 !important;}
 .border-ddd{border:1px solid #f4f4f4 !important;}
 .border-top-f1{border-top: 1px solid #f1f1f1;}
 .border-bottom-f1{border-bottom: 1px solid #f1f1f1;}
@@ -74,14 +76,14 @@ input[readonly]{background: #f5f5f5 !important;border:1px solid #ddd !important;
 .t14{font-size: 0.9rem !important;}
 .t15{font-size: 1rem !important;}
 .t16{font-size: 1.2rem;}
-.t20{font-size: 1.6rem;}
-.tbig{font-size: 2.8rem;}
-.tbiger{font-size: 4.0rem;}
+.t20{font-size: 20px;}
+.tbig{font-size: 28px;}
+.tbiger{font-size: 40px;}
 .fl{float: left;}
 .fr{float: right;}
 .clear{clear: both !important;width: 100%;height:1px;}
 .underline{text-decoration: underline;}
-.numf{font-family: Arial;}
+.numf{font-family:tahoma !important;}
 .wl-close{position: absolute;right: 10px;top: 8px !important;padding: 3px 5px;background: #31cbf9 !important;border: 1px solid #31cbf9 !important;border-radius: 2px;color: #fff;}
 .wl-close:hover,.wl-close:focus{color: #fff;}
 .fw-nomal{font-weight: normal;}
